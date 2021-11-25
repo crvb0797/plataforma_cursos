@@ -61,6 +61,18 @@ class Course extends Model
         return $this->belongsTo('App\Models\Category');
     }
 
+    /* RELACIOENS 1:1 POLIMORFICA */
+    public function image()
+    {
+        return $this->morphOne('App\Models\Image', 'imageable');
+    }
+
+    /* RELACIÓN ESPECIAL */
+    public function lessons()
+    {
+        return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Section');
+    }
+
 
     /* RELACIOENS N:N INVERSAS*/
     public function students()

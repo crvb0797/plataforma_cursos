@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Resource extends Model
 {
     use HasFactory;
+
+    /* RELACIONES POLIMORFICAS */
+    public function resourceable()
+    {
+        return $this->morphTo();
+    }
 }

@@ -11,4 +11,16 @@ class Reaction extends Model
     /* CONSTANTES PARA DEFINIR EN LA MIGRACIÓN DE REACTIONS EL VALOR */
     const LIKE = 1;
     const DISLIKE = 2;
+
+    /* RELACIONES POLIMORFICAS */
+    public function reactionable()
+    {
+        return $this->morphTo();
+    }
+
+    /* RELACION 1:N INVERSA */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

@@ -21,6 +21,23 @@ class Lesson extends Model
         return $this->belongsToMany('App\Models\User');
     }
 
+    /* RELACIONES 1:1 POLIMORFICAS */
+    public function resource()
+    {
+        return $this->morphOne('App\Models\Resource', 'resourceable');
+    }
+
+    /* RELACIONES 1:N POLIMORFICAS */
+    public function comments()
+    {
+        return $this->morphMany('App\Models\Comment', 'commentable');
+    }
+
+    public function reactions()
+    {
+        return $this->morphMany('App\Models\Reaction', 'reactionable');
+    }
+
     /* RELACIONES 1:N INVERSAS  */
     public function section()
     {
