@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {
     use HasFactory;
+
+    /* RELACIONES 1:N INVERSAS */
+    public function course()
+    {
+        return $this->belongsTo('App\Models\Course');
+    }
 }

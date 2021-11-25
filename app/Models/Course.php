@@ -26,6 +26,26 @@ class Course extends Model
         return $this->BelongsTo('App\Models\Users', 'user_id');
     }
 
+    public function requirements()
+    {
+        return $this->HasMany('App\Models\Requirement');
+    }
+
+    public function goals()
+    {
+        return $this->HasMany('App\Models\Goal');
+    }
+
+    public function Audience()
+    {
+        return $this->HasMany('App\Models\Audience');
+    }
+
+    public function Sections()
+    {
+        return $this->HasMany('App\Models\Section');
+    }
+
     public function level()
     {
         return $this->belongsTo('App\Models\Level');
