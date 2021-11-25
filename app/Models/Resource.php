@@ -9,6 +9,9 @@ class Resource extends Model
 {
     use HasFactory;
 
+    /* ASIGNACIÓN MASIVA */
+    protected $guarded = ['id'];
+
     /* RELACIONES POLIMORFICAS */
     public function resourceable()
     {

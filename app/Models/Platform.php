@@ -9,6 +9,9 @@ class Platform extends Model
 {
     use HasFactory;
 
+    /* ASIGNACIÓN MASIVA */
+    protected $guarded = ['id'];
+
     /* RELACIONES 1:N */
     public function lessons()
     {

@@ -9,6 +9,9 @@ class Requirement extends Model
 {
     use HasFactory;
 
+    /* ASIGNACIÓN MASIVA */
+    protected $guarded = ['id'];
+
     /* RELACIONES 1:N INVERSAS */
     public function course()
     {

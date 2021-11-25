@@ -9,6 +9,9 @@ class Review extends Model
 {
     use HasFactory;
 
+    /* ASIGNACIÓN MASIVA */
+    protected $guarded = ['id'];
+
     /* RELACIÓN 1:N INVERSA */
     public function user()
     {

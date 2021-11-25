@@ -9,6 +9,9 @@ class Profile extends Model
 {
     use HasFactory;
 
+    /* ASIGNACIÓN MASIVA */
+    protected $guarded = ['id'];
+
     /* RELACIÓNES INVERSAS */
     public function user()
     {

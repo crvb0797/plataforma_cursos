@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Audience extends Model
 {
+
+    /* ASIGNACIÓN MASIVA */
+    protected $guarded = ['id'];
+
     use HasFactory;
 
     /* RELACIONES 1:N INVERSAS */

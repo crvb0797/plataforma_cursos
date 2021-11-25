@@ -9,6 +9,9 @@ class Lesson extends Model
 {
     use HasFactory;
 
+    /* ASIGNACIÓN MASIVA */
+    protected $guarded = ['id'];
+
     /* RELACION 1:1 */
     public function description()
     {

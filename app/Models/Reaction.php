@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Reaction extends Model
 {
     use HasFactory;
+
+    /* ASIGNACIÓN MASIVA */
+    protected $guarded = ['id'];
+
     /* CONSTANTES PARA DEFINIR EN LA MIGRACIÓN DE REACTIONS EL VALOR */
     const LIKE = 1;
     const DISLIKE = 2;

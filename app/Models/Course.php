@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
+
+    /* ASIGNACIÓN MASIVA */
+    protected $guarded = ['id', 'status'];
+
     /* CONSTANTES PARA DEFINIR EN LA MIGRACIÓN DE CURSOS EL STATUS */
     const BORRADOR = 1;
     const REVISION = 2;
