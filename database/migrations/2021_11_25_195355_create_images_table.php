@@ -20,7 +20,7 @@ class CreateImagesTable extends Migration
 
             /* CAMPOS DE TABLA PLIMORFICA */
             $table->unsignedBigInteger('imageable_id');
-            $table->string('iamgeable_type');
+            $table->string('imageable_type');
 
             $table->timestamps();
         });
