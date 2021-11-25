@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     use HasFactory;
+
+    /* RELACIÓNES INVERSAS */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
