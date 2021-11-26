@@ -95,18 +95,22 @@ $links = [
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
 
-                                    <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                                this.closest('form').submit();">
+                                    <x-jet-dropdown-link href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                                                                        this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </x-jet-dropdown-link>
                                 </form>
                             </x-slot>
                         </x-jet-dropdown>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Iniciar
-                            sesión</a>
-                        <a href="{{ route('register') }}"
-                            class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Registrarse</a>
+                        <div class="hidden md:flex items-center space-x-3 ">
+                            <a href="{{ route('login') }}"
+                                class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-blue-500 hover:text-white transition duration-300">Iniciar
+                                Sesión</a>
+                            <a href="{{ route('register') }}"
+                                class="py-2 px-2 font-medium text-white bg-blue-500 rounded hover:bg-blue-400 transition duration-300">Registrarse</a>
+                        </div>
                     @endauth
 
                 </div>
@@ -179,8 +183,9 @@ $links = [
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <x-jet-responsive-nav-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                        this.closest('form').submit();">
+                        <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                                                                                this.closest('form').submit();">
                             {{ __('Cerrar Sesión') }}
                         </x-jet-responsive-nav-link>
                     </form>
