@@ -1,1 +1,1 @@
-<img src="{{ asset('img/logo_64.svg') }}" alt="">
+<img class="w-52" src="{{ asset('img/logo_black.svg') }}" alt="">

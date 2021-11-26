@@ -11,6 +11,8 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
+
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -21,7 +23,7 @@
 </head>
 
 
-<body class="font-sans antialiased">
+<body class="font-poppins antialiased">
 
     <div class="min-h-screen bg-gray-100">
         @livewire('navigation-menu')
@@ -34,6 +36,22 @@
     @stack('modals')
 
     @livewireScripts
+
+    <footer class="bg-white shadow py-5">
+        <div class="container flex flex-col md:flex-row items-center md:justify-between">
+            <p class="mb-0 text-gray-500">
+                Copyright © 2021
+                <a href="https://villatoro.dev" class="text-info font-weight-bold">villatoro.dev</a>
+            </p>
+            <div>
+                <a href="https://codersfree.com/politicas" class="text-sm text-blue-500 underline">Politicas de
+                    privacidad</a>
+                <a href="https://codersfree.com/terminos" class="text-sm ml-3 text-blue-500 underline">Terminos y
+                    condiciones</a>
+            </div>
+        </div>
+
+    </footer>
 </body>
 
 

@@ -12,13 +12,32 @@ class Course extends Model
     /* ASIGNACIÓN MASIVA */
     protected $guarded = ['id', 'status'];
 
+    /* PROPIEDADES DEFINIDAS */
+    protected $withCount = ['students', 'reviews']; //Recuperamos el conteo de las relaciones que existen entre cursos y estudiantes.
+
     /* CONSTANTES PARA DEFINIR EN LA MIGRACIÓN DE CURSOS EL STATUS */
     const BORRADOR = 1;
     const REVISION = 2;
     const PUBLICADO = 3;
 
+    /* AGREGANDO LA PROPIEDAD PARA LAS ESTRELLAS DEL CURSO */
+    public function getRatingAttribute()
+    {
+        if ($this->reviews_count) {
+            return round($this->reviews->avg('rating'), 1);
+        } else {
+            return 5;
+        }
+    }
+
+    /* RUTAS AMIGABLES CON SLUG */
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+
     /* RELACIONES 1:N */
-    public function review()
+    public function reviews()
     {
         return $this->hasMany('App\Models\Review');
     }
@@ -27,7 +46,7 @@ class Course extends Model
     /* RELACIONES 1:N INVERSAS */
     public function teacher() //🧨 para resolver el error de que no se llama user debemos definir cual es la llave foranea
     {
-        return $this->BelongsTo('App\Models\Users', 'user_id');
+        return $this->BelongsTo('App\Models\User', 'user_id');
     }
 
     public function requirements()
@@ -81,6 +100,6 @@ class Course extends Model
     /* RELACIOENS N:N INVERSAS*/
     public function students()
     {
-        return $this->belongsToMany('App\Models\Users');
+        return $this->belongsToMany('App\Models\User');
     }
 }

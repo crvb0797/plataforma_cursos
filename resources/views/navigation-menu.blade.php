@@ -1,15 +1,15 @@
 @php
 $links = [
     [
-        'name' => 'Inicio',
+        'name' => '<i class="fas fa-home mr-2"></i> Inicio',
         'route' => route('home'),
         'active' => request()->routeIs('home'),
     ],
-    /* [
-        'name' => 'Prueba',
-        'route' => '#',
-        'active' => false,
-    ], */
+    [
+        'name' => '<i class="fas fa-laptop mr-2"></i> Cursos',
+        'route' => route('courses.index'),
+        'active' => request()->routeIs('courses.index'),
+    ],
 ];
 @endphp
 
@@ -32,8 +32,8 @@ $links = [
                 <!-- Enlaces de navegación -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @foreach ($links as $link)
-                        <x-jet-nav-link href="{{ $link['route'] }}" :active="$link['active']">
-                            {{ $link['name'] }}
+                        <x-jet-nav-link class="text-gray-500" href="{{ $link['route'] }}" :active="$link['active']">
+                            {!! $link['name'] !!}
                         </x-jet-nav-link>
                     @endforeach
                 </div>
@@ -97,7 +97,7 @@ $links = [
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                        this.closest('form').submit();">
+                                                                                                                                                                    this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </x-jet-dropdown-link>
                                 </form>
@@ -185,7 +185,7 @@ $links = [
 
                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                                                                this.closest('form').submit();">
+                                                                                                                                            this.closest('form').submit();">
                             {{ __('Cerrar Sesión') }}
                         </x-jet-responsive-nav-link>
                     </form>

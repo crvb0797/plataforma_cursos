@@ -132,5 +132,177 @@
 </html> --}}
 
 <x-app-layout>
+    {{-- HERO --}}
+    <section class="bg-cover" style="background-image: url({{ asset('img/banner_home.jpg') }})">
+        <div class="container py-36">
+            <div class="w-full md:w-3/4 lg:w-1/2 space-y-4">
+                <h1 class="text-white font-bold text-4xl">Domina la tecnología web con Villatoro.dev</h1>
+                <p class="text-white text-lg">En Villatoro.dev encontrarás cursos que te
+                    ayudarán a
+                    convertirte en un profesional
+                    del desarrollador web.</p>
 
+                <!-- search -->
+                <div class="pt-2 relative mx-auto text-gray-600">
+                    <input
+                        class=" w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                        type="search" name="search" placeholder="Buscar curso...">
+                    <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
+                        <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+                            viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
+                            xml:space="preserve" width="512px" height="512px">
+                            <path
+                                d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- /HERO --}}
+
+    {{-- CONTENIDO DE LA PLATAFORMA --}}
+    <section class="mt-24">
+        <h1 class="text-gray-600 text-center text-3xl uppercase mb-6">Contenido</h1>
+
+        {{-- contenido --}}
+        <div class="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8">
+            <article>
+                <figure>
+                    <img class="rounded-xl h-36 w-full object-cover" src="{{ asset('img/cursos.jpg') }}"
+                        alt="Cursos de la plataforma">
+
+                    <header class="mt-2">
+                        <h1 class="text-center text-xl text-gray-700">Cursos y proyectos</h1>
+                    </header>
+
+                    <p class="text-sm text-gray-500">Encuentra una gran variedad de cursos y proyectos en Laravel,
+                        totalmente gratis.</p>
+                </figure>
+            </article>
+
+            <article>
+                <figure>
+                    <img class="rounded-xl h-36 w-full object-cover" src="{{ asset('img/manuales.jpg') }}"
+                        alt="Manuales de la plataforma">
+                </figure>
+                <header class="mt-2">
+                    <h1 class="text-center text-xl text-gray-700">Manual de Laravel</h1>
+                </header>
+
+                <p class="text-sm text-gray-500">Hemos traducido la documentación oficial, para ayudarte en tu proceso
+                    de aprendizaje</p>
+            </article>
+
+            <article>
+                <figure>
+                    <img class="rounded-xl h-36 w-full object-cover" src="{{ asset('img/blog.jpg') }}"
+                        alt="blog de la plataforma">
+                </figure>
+                <header class="mt-2">
+                    <h1 class="text-center text-xl text-gray-700">Blog</h1>
+                </header>
+
+                <p class="text-sm text-gray-500">Artículos de programación y desarrollo web, para potenciar tu
+                    aprendizaje</p>
+            </article>
+
+            <article>
+                <figure>
+                    <img class="rounded-xl h-36 w-full object-cover" src="{{ asset('img/clases.jpg') }}"
+                        alt="clases virtuales de la plataforma">
+                </figure>
+                <header class="mt-2">
+                    <h1 class="text-center text-xl text-gray-700">Clases en linea</h1>
+                </header>
+
+                <p class="text-sm text-gray-500">Si se te hace dificil aprender a programar, contáctanos y nosotros
+                    desarrollamos tu sitio web</p>
+            </article>
+        </div>
+    </section>
+    {{-- /CONTENIDO DE LA PLATAFORMA --}}
+
+    {{-- VENTAJAS --}}
+    <section class="mt-24 bg-gray-700 py-12">
+        <h1 class="text-center uppercase text-white text-3xl mb-4">ventajas</h1>
+        <div class="container grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-8">
+            <div class="card text-center text-info p-8 space-y-2">
+                <i class="fas fa-laptop-code text-info d-block text-center mb-2 text-3xl"></i>
+                <h1 class="mt-0 text-center text-xl">Cursos gratuitos</h1>
+                <p class="text-center text-sm">Una amplia variedad de cursos de desarrolo web gratis y en español</p>
+            </div>
+
+            <div class="card text-center text-info p-8 space-y-2">
+                <i class="far fa-clock text-info d-block text-center mb-2 text-3xl"></i>
+                <h1 class="mt-0 text-center text-xl">A tu propio ritmo</h1>
+                <p class="text-center text-sm">Estudia en tus tiempos libres y desde donde estés, con nuestros cursos
+                    online.</p>
+            </div>
+
+            <div class="card text-center text-info p-8 space-y-2">
+                <i class="fas fa-chalkboard-teacher text-info d-block text-center mb-2 text-3xl"></i>
+                <h1 class="mt-0 text-center text-xl">Manual en español</h1>
+                <p class="text-center text-sm">Hemos traducido la documentación de Laravel, para que puedas aprender
+                    mejor</p>
+            </div>
+
+        </div>
+    </section>
+
+    {{-- ULTIMOS CURSOS --}}
+    <section class="mt-24 pb-12">
+        <h1 class="text-center uppercase text-3xl text-gray-600">últimos cursos</h1>
+        <p class="text-center text-gray-500 text-sm mb-6">Trabajo duro para seguir subiendo cursos</p>
+
+        {{-- listado de cursos --}}
+        <div class="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8">
+            @foreach ($courses as $course)
+                <article class="card">
+                    <img class="h-36 w-full object-cover" src="{{ Storage::url($course->image->url) }}"
+                        alt="{{ $course->title }}">
+                    <div class="px-6 py-4">
+                        <h1 class="text-lg text-gray-700 mb-2 leading-6">{{ Str::limit($course->title, 40, '...') }}
+                        </h1>
+
+                        {{-- nombre del profesro --}}
+                        <p class="text-gray-500 text-sm mb-2">Prof: {{ $course->teacher->name }}</p>
+
+                        {{-- Estrellas del curso --}}
+                        <div class="flex justify-between">
+                            <ul class="flex text-sm space-x-1">
+                                <li class=""><i
+                                        class="fas fa-star text-{{ $course->rating >= 1 ? 'yellow' : 'gray' }}-400 text-yellow-400"></i>
+                                </li>
+                                <li class=""><i
+                                        class="fas fa-star text-{{ $course->rating >= 2 ? 'yellow' : 'gray' }}-400"></i>
+                                </li>
+                                <li class=""><i
+                                        class="fas fa-star text-{{ $course->rating >= 3 ? 'yellow' : 'gray' }}-400"></i>
+                                </li>
+                                <li class=""><i
+                                        class="fas fa-star text-{{ $course->rating >= 4 ? 'yellow' : 'gray' }}-400"></i>
+                                </li>
+                                <li class=""><i
+                                        class="fas fa-star text-{{ $course->rating == 5 ? 'yellow' : 'gray' }}-400"></i>
+                                </li>
+                            </ul>
+
+                            {{-- Alumnos matriculados --}}
+                            <p class="text-sm text-gray-500"><i class="fas fa-users"></i>
+                                ({{ $course->students_count }})</p>
+                        </div>
+
+                        <a href="{{ route('courses.show', $course) }}"
+                            class="block text-center w-full mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-2 px-4 rounded">
+                            <i class="fas fa-plus-circle mr-2"></i>Más información
+                        </a>
+
+
+                    </div>
+                </article>
+            @endforeach
+        </div>
+    </section>
 </x-app-layout>
