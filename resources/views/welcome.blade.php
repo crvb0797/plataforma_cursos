@@ -259,49 +259,7 @@
         {{-- listado de cursos --}}
         <div class="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8">
             @foreach ($courses as $course)
-                <article class="card">
-                    <img class="h-36 w-full object-cover" src="{{ Storage::url($course->image->url) }}"
-                        alt="{{ $course->title }}">
-                    <div class="px-6 py-4">
-                        <h1 class="text-lg text-gray-700 mb-2 leading-6">{{ Str::limit($course->title, 40, '...') }}
-                        </h1>
-
-                        {{-- nombre del profesro --}}
-                        <p class="text-gray-500 text-sm mb-2">Prof: {{ $course->teacher->name }}</p>
-
-                        {{-- Estrellas del curso --}}
-                        <div class="flex justify-between">
-                            <ul class="flex text-sm space-x-1">
-                                <li class=""><i
-                                        class="fas fa-star text-{{ $course->rating >= 1 ? 'yellow' : 'gray' }}-400 text-yellow-400"></i>
-                                </li>
-                                <li class=""><i
-                                        class="fas fa-star text-{{ $course->rating >= 2 ? 'yellow' : 'gray' }}-400"></i>
-                                </li>
-                                <li class=""><i
-                                        class="fas fa-star text-{{ $course->rating >= 3 ? 'yellow' : 'gray' }}-400"></i>
-                                </li>
-                                <li class=""><i
-                                        class="fas fa-star text-{{ $course->rating >= 4 ? 'yellow' : 'gray' }}-400"></i>
-                                </li>
-                                <li class=""><i
-                                        class="fas fa-star text-{{ $course->rating == 5 ? 'yellow' : 'gray' }}-400"></i>
-                                </li>
-                            </ul>
-
-                            {{-- Alumnos matriculados --}}
-                            <p class="text-sm text-gray-500"><i class="fas fa-users"></i>
-                                ({{ $course->students_count }})</p>
-                        </div>
-
-                        <a href="{{ route('courses.show', $course) }}"
-                            class="block text-center w-full mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-2 px-4 rounded">
-                            <i class="fas fa-plus-circle mr-2"></i>Más información
-                        </a>
-
-
-                    </div>
-                </article>
+                <x-card :course="$course" />
             @endforeach
         </div>
     </section>

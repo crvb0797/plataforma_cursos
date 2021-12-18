@@ -5,3 +5,16 @@
 .card{
     @apply bg-white shadow-lg rounded overflow-hidden;
 }
+
+.card-body{
+    @apply px-6 py-4;
+}
+
+.card-title{
+    @apply text-lg text-gray-700 mb-2 leading-6;
+}
+
+
+
+
+

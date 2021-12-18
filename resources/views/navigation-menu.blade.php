@@ -97,7 +97,7 @@ $links = [
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                    this.closest('form').submit();">
+                                                                                                                                                                        this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </x-jet-dropdown-link>
                                 </form>
@@ -141,7 +141,7 @@ $links = [
         <div class="pt-2 pb-3 space-y-1">
             @foreach ($links as $link)
                 <x-jet-responsive-nav-link href="{{ $link['route'] }}" :active="$link['active']">
-                    {{ $link['name'] }}
+                    {!! $link['name'] !!}
                 </x-jet-responsive-nav-link>
             @endforeach
         </div>
@@ -185,7 +185,7 @@ $links = [
 
                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                                                                                                            this.closest('form').submit();">
+                                                                                                                                                this.closest('form').submit();">
                             {{ __('Cerrar Sesión') }}
                         </x-jet-responsive-nav-link>
                     </form>

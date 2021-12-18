@@ -12,6 +12,23 @@ class Course extends Model
     /* ASIGNACIÓN MASIVA */
     protected $guarded = ['id', 'status'];
 
+    /* QUERY SCOPE */
+    public function scopeCategory($query, $category_id)
+    {
+        if ($category_id) {
+            return $query->where('category_id', $category_id);
+        }
+    }
+
+
+    public function scopeLevel($query, $level_id)
+    {
+        if ($level_id) {
+            return $query->where('level_id', $level_id);
+        }
+    }
+
+
     /* PROPIEDADES DEFINIDAS */
     protected $withCount = ['students', 'reviews']; //Recuperamos el conteo de las relaciones que existen entre cursos y estudiantes.
 
