@@ -8,7 +8,7 @@ $links = [
     [
         'name' => '<i class="fas fa-laptop mr-2"></i> Cursos',
         'route' => route('courses.index'),
-        'active' => request()->routeIs('courses.index'),
+        'active' => request()->routeIs('courses.*'),
     ],
 ];
 @endphp
@@ -97,7 +97,7 @@ $links = [
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                        this.closest('form').submit();">
+                                                                                                                                                                            this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </x-jet-dropdown-link>
                                 </form>
@@ -185,7 +185,7 @@ $links = [
 
                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                                                                                                                this.closest('form').submit();">
+                                                                                                                                                    this.closest('form').submit();">
                             {{ __('Cerrar Sesión') }}
                         </x-jet-responsive-nav-link>
                     </form>

@@ -15,7 +15,7 @@ class Section extends Model
     /* RELACIONES 1:N */
     public function lessons()
     {
-        return $this->hasMany('app\Models\Lesson');
+        return $this->hasMany(Lesson::class);
     }
 
     /* RELACIONES 1:N INVERSAS */
