@@ -24,11 +24,4 @@ class CourseController extends Controller
     }
 
     /* MÉTODO ENCARGADO DE MATRICULAR AL USUARIO AL CURSO */
-    /* con esto añadimos registros a la tabla intermedia entre usuarios (estudiants) y cursos */
-
-    public function enrolled(Course $course)
-    {
-        $course->students()->attach(auth()->user()->id);
-        return redirect()->route('courses.status', $course);
-    }
 }

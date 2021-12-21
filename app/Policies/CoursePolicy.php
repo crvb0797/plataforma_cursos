@@ -21,9 +21,4 @@ class CoursePolicy
     }
 
     //POLICY PARA QUE EL USUARIO MATRICULADO YA NO SE PUEDA INSCRIBIR SI NO CONTINUAR CON EL CURSO
-
-    public function enrolled(User $user, Course $course)
-    {
-        return $course->students->contains($user->id);
-    }
 }
