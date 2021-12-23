@@ -4,6 +4,7 @@ use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Livewire\CourseStatus;
 
 Route::get('/', HomeController::class)->name('home');
 
@@ -20,6 +21,4 @@ Route::post('curso/{course}/inscrito', [CourseController::class, 'enrolled'])->m
 
 
 //RUTA PARA MOSTRAR AVANCES DEL CURSO POR USUARIO
-Route::get('avances-curso/{course}', function ($course) {
-    return "Aquí podras ver los avances del curso";
-})->name('courses.status');
+Route::get('avances-curso/{course}', CourseStatus::class)->name('courses.status');
