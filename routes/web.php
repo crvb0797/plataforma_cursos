@@ -16,7 +16,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //RUTA PARA MATRICULAR USUARIOS
-
+Route::post('curso/{course}/inscrito', [CourseController::class, 'enrolled'])->middleware('auth')->name('courses.enrolled');
 
 
 //RUTA PARA MOSTRAR AVANCES DEL CURSO POR USUARIO
+Route::get('avances-curso/{course}', function ($course) {
+    return "Aquí podras ver los avances del curso";
+})->name('courses.status');

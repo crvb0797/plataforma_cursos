@@ -24,4 +24,10 @@ class CourseController extends Controller
     }
 
     /* MÉTODO ENCARGADO DE MATRICULAR AL USUARIO AL CURSO */
+    public function enrolled(Course $course)
+    {
+        $course->students()->attach(auth()->user()->id);
+
+        return redirect()->route('courses.status', $course);
+    }
 }

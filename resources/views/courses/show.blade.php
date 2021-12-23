@@ -92,8 +92,15 @@
                         </div>
                     </div>
                     {{-- Matriculación al curso --}}
-                    <a class="btn btn-info btn-block mt-4" href="#">Llevar este
-                        curso</a>
+                    @can('enrolled', $course)
+                        <a href="{{ route('courses.status', $course) }}" class="btn btn-info btn-block mt-4">Continuar con
+                            el curso</a>
+                    @else
+                        <form action="{{ route('courses.enrolled', $course) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-info btn-block mt-4">Llevar este curso</button>
+                        </form>
+                    @endcan
                 </div>
             </section>
 
