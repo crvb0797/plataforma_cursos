@@ -12,6 +12,13 @@ class Lesson extends Model
     /* ASIGNACIÓN MASIVA */
     protected $guarded = ['id'];
 
+    /* ATRBUTO PARA COMPLETADO DEL CURSO */
+    public function getCompletedAttribute()
+    {
+        return $this->users->contains(auth()->user()->id);
+    }
+
+
     /* RELACION 1:1 */
     public function description()
     {

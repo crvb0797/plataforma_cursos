@@ -1204,12 +1204,12 @@ select{
 	grid-column: span 6 / span 6;
 }
 
-.float-right{
-	float: right;
+.col-span-2{
+	grid-column: span 2 / span 2;
 }
 
-.m-4{
-	margin: 1rem;
+.float-right{
+	float: right;
 }
 
 .mx-auto{
@@ -1220,11 +1220,6 @@ select{
 .my-2{
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
-}
-
-.my-4{
-	margin-top: 1rem;
-	margin-bottom: 1rem;
 }
 
 .ml-3{
@@ -1495,10 +1490,6 @@ select{
 	width: 13rem;
 }
 
-.w-32{
-	width: 8rem;
-}
-
 .min-w-0{
 	min-width: 0px;
 }
@@ -1595,6 +1586,10 @@ select{
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
+.grid-cols-3{
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .flex-col{
 	flex-direction: column;
 }
@@ -1629,6 +1624,10 @@ select{
 
 .gap-1{
 	gap: 0.25rem;
+}
+
+.gap-8{
+	gap: 2rem;
 }
 
 .gap-x-6{
