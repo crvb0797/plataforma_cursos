@@ -6,6 +6,8 @@
             {{ $current->name }}
             {{ $current->id }}
             <p>Indice: {{ $index }}</p>
+            {{-- <p>Anterior: {{ $previous->id }}</p> --}}
+            <p>Siguiente: {{ $next->id }}</p>
         </div>
 
         {{-- SECCIONES Y LECCIONES DEL CURSO --}}
@@ -31,9 +33,12 @@
                             <ul>
                                 @foreach ($section->lessons as $lesson)
                                     <li>
-                                        <a>{{ $lesson->id }} @if ($lesson->completed)
+                                        <a class="cursor-pointer"
+                                            wire:click="changeLesson({{ $lesson }})">{{ $lesson->id }}
+                                            @if ($lesson->completed)
                                                 (Completado)
-                                            @endif</a>
+                                            @endif
+                                        </a>
                                     </li>
                                 @endforeach
                             </ul>
