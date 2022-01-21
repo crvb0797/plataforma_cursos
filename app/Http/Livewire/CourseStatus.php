@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class CourseStatus extends Component
 {
-    public $course, $current, $index, $previous, $next;
+    public $course, $current;
 
     /* Este método me permite recuperar la información que estemos pasando a traves de la URL */
     public function mount(Course $course)
@@ -18,12 +18,6 @@ class CourseStatus extends Component
         foreach ($course->lessons as $lesson) {
             if (!$lesson->completed) {
                 $this->current = $lesson;
-                /* Lección actual */
-                $this->index = $course->lessons->search($lesson);
-                /* Lección anterior */
-                /* $this->previous = $course->lessons[$this->index - 1]; */
-                /* Siguiente lección */
-                $this->next = $course->lessons[$this->index + 1];
                 break;
             }
         }
@@ -37,10 +31,33 @@ class CourseStatus extends Component
     public function changeLesson(Lesson $lesson)
     {
         $this->current = $lesson;
-        $this->index = $this->course->lessons->pluck('id')->search($lesson->id);
-        /* Lección anterior */
-        /* $this->previous = $this->course->lessons[$this->index - 1]; */
-        /* Siguiente lección */
-        $this->next = $this->course->lessons[$this->index + 1];
+    }
+
+    /* Propiedades computadas para las lecciones */
+
+    /* Lección actual */
+    public function getIndexProperty()
+    {
+        return $this->course->lessons->pluck('id')->search($this->current->id);
+    }
+
+    /* Lección anterior */
+    public function getPreviousProperty()
+    {
+        if ($this->index == 0) {
+            return null;
+        } else {
+            return $this->course->lessons[$this->index - 1];
+        }
+    }
+
+    public function getNextProperty()
+    {
+        if ($this->index == $this->course->lessons->count() - 1) {
+            return null;
+        } else {
+            /* Siguiente lección */
+            return $this->course->lessons[$this->index + 1];
+        }
     }
 }

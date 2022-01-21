@@ -5,9 +5,15 @@
             {!! $current->iframe !!}
             {{ $current->name }}
             {{ $current->id }}
-            <p>Indice: {{ $index }}</p>
-            {{-- <p>Anterior: {{ $previous->id }}</p> --}}
-            <p>Siguiente: {{ $next->id }}</p>
+            <p>Indice: {{ $this->index }}</p>
+            <p>Anterior: @if ($this->previous)
+                    {{ $this->previous->id }}
+                @endif
+            </p>
+            <p>Siguiente: @if ($this->next)
+                    {{ $this->next->id }}
+                @endif
+            </p>
         </div>
 
         {{-- SECCIONES Y LECCIONES DEL CURSO --}}
