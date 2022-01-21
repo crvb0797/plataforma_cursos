@@ -18,6 +18,8 @@ module.exports = {
 
             colors:{
                 'info': '#4f9da6',
+                'emerald-500': '#10B981',
+                'emerald-200': '#A7F3D0',
             }
         },
     },

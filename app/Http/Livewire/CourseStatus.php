@@ -21,6 +21,9 @@ class CourseStatus extends Component
                 break;
             }
         }
+        if (!$this->current) {
+            $this->current = $course->lessons->last();
+        }
     }
 
     public function render()
@@ -28,12 +31,27 @@ class CourseStatus extends Component
         return view('livewire.course-status');
     }
 
+    /* METODOS */
+
     public function changeLesson(Lesson $lesson)
     {
         $this->current = $lesson;
     }
 
-    /* Propiedades computadas para las lecciones */
+    public function completed()
+    {
+        if ($this->current->completed) {
+            //Delete register
+            $this->current->users()->detach(auth()->user()->id);
+        } else {
+            //Add register
+            $this->current->users()->attach(auth()->user()->id);
+        }
+        $this->current = Lesson::find($this->current->id);
+        $this->course = Course::find($this->course->id);
+    }
+
+    /* PROPIEDADES COMPUTADAS */
 
     /* Lección actual */
     public function getIndexProperty()
@@ -51,13 +69,25 @@ class CourseStatus extends Component
         }
     }
 
+    /* Siguiente lección */
     public function getNextProperty()
     {
         if ($this->index == $this->course->lessons->count() - 1) {
             return null;
         } else {
-            /* Siguiente lección */
             return $this->course->lessons[$this->index + 1];
         }
+    }
+
+    public function getAdvanceProperty()
+    {
+        $i = 0;
+        foreach ($this->course->lessons as $lesson) {
+            if ($lesson->completed) {
+                $i++;
+            }
+        }
+        $advance = ($i * 100) / ($this->course->lessons->count());
+        return round($advance, 2);
     }
 }
